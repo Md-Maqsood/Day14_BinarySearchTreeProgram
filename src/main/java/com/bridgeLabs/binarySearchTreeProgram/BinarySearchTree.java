@@ -10,6 +10,12 @@ public class BinarySearchTree<K extends Comparable<K>> {
 		this.root=null;
 	}
 	
+	public void addMultipleValues(K[] keyArray) {
+		for(K key: keyArray) {
+			this.add(key);
+		}
+	}
+	
 	public void add(K key) {
 		this.root=this.addRecursively(this.root,key);
 	}
@@ -39,10 +45,8 @@ public class BinarySearchTree<K extends Comparable<K>> {
 	
 	public static void main(String[] args) {
 		BinarySearchTree<Integer> myTree=new BinarySearchTree<Integer>();
-		Integer a=56, b=30, c=70;
-		myTree.add(a);
-		myTree.add(b);
-		myTree.add(c);
+		Integer[] keyArray=new Integer[] {56,30,70,22,40,60,95,11,65,3,63,67};
+		myTree.addMultipleValues(keyArray);
 		logger.debug("Binary tree of size "+myTree.getSize()+" created.");
 	}
 }
