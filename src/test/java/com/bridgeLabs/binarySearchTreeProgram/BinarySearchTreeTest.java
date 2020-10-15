@@ -1,20 +1,18 @@
 package com.bridgeLabs.binarySearchTreeProgram;
 
-import static org.junit.Assert.assertTrue;
-
+import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
-public class BinarySearchTreeTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
-    }
+public class BinarySearchTreeTest {
+
+	@Test
+	public void givenThreeNumbersWhenAddedToBInaryTreeShouldHaveSizeThree() {
+		BinarySearchTree<Integer> myTree=new BinarySearchTree<Integer>();
+		Integer a=56, b=30, c=70;
+		myTree.add(a);
+		myTree.add(b);
+		myTree.add(c);
+		int size=myTree.getSize();
+		Assert.assertEquals(3, size);
+	}
 }
