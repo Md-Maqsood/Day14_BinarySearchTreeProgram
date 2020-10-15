@@ -35,6 +35,22 @@ public class BinarySearchTree<K extends Comparable<K>> {
 		return current;
 	}
 	
+	public boolean search(K key) {
+		return this.searchRecursively(this.root,key);
+	}
+	
+	private boolean searchRecursively(BinaryNode<K> current, K key) {
+		if(current==null) {
+			return false;
+		}else if(current.key==key) {
+			return true;
+		}else if(key.compareTo(current.key)<0) {
+			return searchRecursively(current.left, key);
+		}else {
+			return searchRecursively(current.right, key);
+		}
+	}
+	
 	public int getSize() {
 		return this.getSizeRecursively(this.root);
 	}
@@ -48,6 +64,8 @@ public class BinarySearchTree<K extends Comparable<K>> {
 		Integer[] keyArray=new Integer[] {56,30,70,22,40,60,95,11,65,3,63,67};
 		myTree.addMultipleValues(keyArray);
 		logger.debug("Binary tree of size "+myTree.getSize()+" created.");
+		Integer searchNumber=63;
+		logger.debug("\nElement 63 "+(myTree.search(searchNumber)?"is in the tree":"is not in the tree"));
 	}
 }
 
